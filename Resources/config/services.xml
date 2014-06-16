@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="symfonians.admin_bundle.filters_helper.class">Symfonians\AdminBundle\Helper\FiltersHelper</parameter>
+    </parameters>
+
+    <services>
+        <service id="symfonians.adminbundle.filters_helper" class="%symfonians.admin_bundle.filters_helper.class%">
+            <argument type="service" id="request_stack" />
+            <argument type="service" id="form.factory" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+    </services>
+
+</container>
