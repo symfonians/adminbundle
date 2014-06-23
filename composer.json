@@ -1,0 +1,25 @@
+{
+    "name": "symfonians/adminbundle",
+    "type": "symfony-bundle",
+    "description": "Admin helpers for Symfony projects",
+    "keywords": ["admin","helper", "filters"],
+    "homepage": "https://github.com/symfonians/adminbundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean-Christophe Cuvelier",
+            "email": "jcc@symfonians.be",
+            "homepage": "http://symfonians.be/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/framework-bundle": "~2.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "Symfoninans\\AdminBundle": "src"
+        }
+    }
+}
