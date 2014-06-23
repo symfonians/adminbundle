@@ -19,8 +19,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Symfoninans\\AdminBundle": ""
+            "Symfonians\\AdminBundle": ""
         }
     },
-    "target-dir": "Symfoninans/AdminBundle"
+    "target-dir": "Symfonians/AdminBundle"
 }
