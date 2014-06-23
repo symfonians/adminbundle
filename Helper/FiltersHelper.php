@@ -2,7 +2,7 @@
 /**
  * Date: 12/06/14
  * Time: 14:49
- * Author: Jean-Christophe Cuvelier <jcc@morris-chapman.com>
+ * Author: Jean-Christophe Cuvelier <jcc@symfonians.be>
  */
 
 namespace Symfonians\AdminBundle\Helper;
