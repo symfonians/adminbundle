@@ -7,14 +7,13 @@
 
 namespace Symfonians\AdminBundle\Helper;
 
-
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class FiltersHelper {
-
+class FiltersHelper
+{
     /**
      * @var RequestStack
      */
@@ -44,24 +43,20 @@ class FiltersHelper {
     }
 
     /**
-     * @param AbstractType $type
+     * @param  AbstractType                 $type
      * @return \Symfony\Component\Form\Form
      */
     public function getFiltersForm($type)
     {
-        if($this->getRequest()->request->get('reset'))
-        {
+        if ($this->getRequest()->request->get('reset')) {
             $this->getRequest()->getSession()->set($type->getName() . '.filters', array());
         }
 
         $filters = $this->getRequest()->getSession()->get($type->getName() . '.filters', array());
 
-        if(is_array($filters))
-        {
-            foreach($filters as $key => $filter)
-            {
-                if(is_object($filter))
-                {
+        if (is_array($filters)) {
+            foreach ($filters as $key => $filter) {
+                if (is_object($filter)) {
                     $filters[$key] = $this->entityManager->merge($filter);
                 }
             }
@@ -69,12 +64,10 @@ class FiltersHelper {
 
         $filters_form = $this->formFactory->create($type, $filters);
 
-        if(!$this->getRequest()->request->get('reset'))
-        {
+        if (!$this->getRequest()->request->get('reset')) {
             $filters_form->handleRequest($this->getRequest());
 
-            if($filters_form->isValid())
-            {
+            if ($filters_form->isValid()) {
                 $filters = $filters_form->getData();
 
                 $this->getRequest()->getSession()->set($type->getName() . '.filters', $filters);
@@ -84,4 +77,4 @@ class FiltersHelper {
         return $filters_form;
     }
 
-} 
+}
